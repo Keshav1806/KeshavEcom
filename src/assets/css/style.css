@@ -645,6 +645,129 @@ hr{
     cursor: pointer;
 }
 
+/* --------------login page code--------------- */
+.login1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    height: 99.6vh;
+    background: linear-gradient(60deg, #ff85a2 10%, #ffffff 95%); 
+}
+.signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    height: 99.6vh;
+    background: linear-gradient(60deg, #ff85a2 10%, #ffffff 95%); 
+}
+.logsign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    background-color: white;
+    padding: 1.5rem 2rem;
+    padding-bottom: 2rem;
+    border-radius: 10px;
+    gap: 0.9rem;
+    width: 22rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.error{
+    font-size: 0.6rem;
+    color: red;
+    align-self: flex-start;
+    width: 100%;
+    border: 2px solid rgb(247, 163, 163);
+    padding: 0.4rem 0.4rem;
+    border-radius: 5px;
+    background-color: rgb(255, 230, 230);
+}
+.noerror{
+    display: none;
+}
+.logsign h1{
+    font-size: 1.7rem;
+    margin-bottom: 0.5rem;
+}
+.epass{
+    width: 100%;
+    position: relative;
+}
+.epass label{
+    position: absolute;
+    top: 23%;
+    font-size: 0.77rem;
+    left: 5%;
+    z-index: 2;
+    transition: all 0.3s;
+    color: rgb(158, 157, 157);
+    
+}
+.epass input{
+    width: 100%;
+    padding: 0.6rem 0.6rem;
+    border-radius: 5px;
+    border: 1px solid rgb(205, 204, 204);
+}
+.logsign input:focus{
+    outline: none;
+}
+.logsign input:focus + label,
+.logsign input:valid + label{
+    top: -17%;
+    background-color: white;
+    padding: 0rem 0.25rem;
+    font-size: 0.6rem;
+}
+.logsign a{
+    font-size: 0.75rem;
+    text-decoration: none;
+    color: blue;
+}
+.logsign button{
+    width: 100%;
+    padding: 0.6rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: white;
+    background-color: #ff85a2;
+    border: none;
+    border-radius: 5px;
+}
+.logsign p{
+    font-size: 0.75rem;
+    color: rgb(110, 110, 110);
+}
+.logsign .google{
+    position: relative;
+    border: 1px solid rgb(205, 204, 204);
+    background-color: white;
+    color: rgb(171, 169, 169);
+    font-weight: 700;
+}
+.google img{
+    position: absolute;
+    left: 5%;
+}
+.or{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+.or .line{
+    height: 1px;
+    background-color: rgb(228, 231, 231);
+    width: 45%;
+}
+
 /* ----------------Media Queiries---------------- */
 @media(max-width: 1284px) {
     .popcont {
@@ -1509,5 +1632,13 @@ hr{
 
     .mainleft p {
         font-size: 0.7rem;
+    }
+}
+
+/* ---------------login page media query---------------- */
+
+@media(max-width: 460px){
+    .logsign{
+        width: 18rem;
     }
 }

@@ -5,3 +5,6 @@
   font-family: poppins;
   scroll-behavior: smooth;
 }
+button{
+  cursor: pointer;
+}
