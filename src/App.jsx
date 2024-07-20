@@ -13,13 +13,16 @@ import Cart from './component/Cart';
 import all_product from './component/Assets/all_product';
 import Login from './component/Login';
 import Signup from './component/Signup';
+import { getAuth } from 'firebase/auth';
+import { app } from "./firebase";
+
+const auth = getAuth(app);
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [cart, setCart] = useState({});
   const [total, setTotal] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
-  // const [action, setAction] = useState("Login");
 
   useEffect(() => {
     const initialCart = {};
@@ -28,14 +31,6 @@ function App() {
     });
     setCart(initialCart);
   }, []);
-
-  // const wantsignup = () => {
-  //   setAction("Signup");
-  // };
-
-  // const wantlogin = () => {
-  //   setAction("Login");
-  // };
 
   const addToCart = (productId) => {
     setCart(prevCart => {
@@ -73,9 +68,11 @@ function App() {
       return updatedCart;
     });
   };
+  
 
   return (
     <Router>
+      
       <MainContent
         total={total}
         subtotal={subtotal}
@@ -88,7 +85,7 @@ function App() {
   );
 }
 
-const MainContent = ({ total, subtotal, cart, cartItems, removeFromCart, addToCart}) => {
+const MainContent = ({ total, subtotal, cart, cartItems, removeFromCart, addToCart }) => {
   const location = useLocation();
   const hideNavAndFooter = location.pathname === '/Login' || location.pathname === '/Signup';
 
@@ -103,8 +100,8 @@ const MainContent = ({ total, subtotal, cart, cartItems, removeFromCart, addToCa
         <Route exact path="/Kids" element={<Kids />} />
         <Route exact path="/Cart" element={<Cart subtotal={subtotal} removeFromCart={removeFromCart} cart={cart} cartItems={cartItems} />} />
         <Route path="/Productinfo/:productId" element={<Productinfo addToCart={addToCart} />} />
-        <Route exact path="/Login" element={<Login/>} />
-        <Route exact path="/Signup" element={<Signup/>} />
+        <Route exact path="/Login" element={<Login />} />
+        <Route exact path="/Signup" element={<Signup />} />
       </Routes>
       {!hideNavAndFooter && <Footer />}
     </>
